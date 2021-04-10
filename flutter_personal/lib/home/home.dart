@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_personal/home/appbar.dart';
+import 'package:flutter_personal/home/body.dart';
 
 class PersonalHomePage extends StatelessWidget {
 
@@ -9,7 +10,12 @@ class PersonalHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: null,
-      body: new PersonalAppBar(),
+      body: new Column(
+        children: [
+          new PersonalAppBar(),
+          new PersonalAppBody(),
+        ],
+      )
     );
 
   }

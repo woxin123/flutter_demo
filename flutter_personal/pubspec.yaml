@@ -52,6 +52,8 @@ flutter:
     - images/header.png
     - images/personal_navigation.png
     - images/document.png
+    - images/personal_message_area.png
+    - images/touxiang.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -58,6 +58,7 @@ class PersonalAppBody extends StatelessWidget {
       child: Column(
         children: [
           _personalMessage(),
+          SizedBox(height: 20.0,),
           Container(
             height: 200.0,
             decoration: BoxDecoration(
@@ -83,7 +84,7 @@ class PersonalAppBody extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 1009.0,
+            height: 4009.0,
             decoration: BoxDecoration(
               color: Colors.red,
             ),
@@ -95,16 +96,25 @@ class PersonalAppBody extends StatelessWidget {
 
   Widget _personalMessage() {
     final double borderRadius = 5.0;
+    final cardName = {"文章", "日记", "评论"};
+    final cardCount = {201, 108, 1915};
+    final iconList = [
+      "images/github.png",
+      "images/github.png",
+      "images/github.png"
+    ];
     return Container(
-      decoration:
-          BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(borderRadius))),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(borderRadius))),
       child: Stack(
         alignment: Alignment.center,
         children: [
           Column(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(borderRadius), topRight: Radius.circular(borderRadius)),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(borderRadius),
+                    topRight: Radius.circular(borderRadius)),
                 child: Image(
                   height: 130.0,
                   width: double.infinity,
@@ -116,11 +126,57 @@ class PersonalAppBody extends StatelessWidget {
               SizedBox(
                 height: 50,
               ),
-              Text("一个很懒的程序员"),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 15.0),
+                child: Text("一个很懒的程序员"),
+              ),
+              Row(
+                children: cardName
+                    .map(
+                      (e) => Expanded(
+                        flex: 1,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(vertical: 10.0),
+                              child: Text(
+                                "201",
+                                style: TextStyle(
+                                  color: Color(0xFF00a1d6),
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              e,
+                              style: TextStyle(),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.min,
+                children: iconList
+                    .map((e) => Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 3.0),
+                        child: Image(
+                            width: 24.0, height: 24.0, image: AssetImage(e))))
+                    .toList(),
+              ),
+              SizedBox(height: 10.0,)
             ],
           ),
           Positioned(
-            top: 80.0,
+            top: 90.0,
             child: CircleAvatar(
               backgroundImage: AssetImage("images/touxiang.jpg"),
               radius: 40.0,

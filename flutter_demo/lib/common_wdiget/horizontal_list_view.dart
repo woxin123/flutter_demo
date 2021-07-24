@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+void main() => runApp(HorizontalListViewTestApp());
+
 class HorizontalListViewTestApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
